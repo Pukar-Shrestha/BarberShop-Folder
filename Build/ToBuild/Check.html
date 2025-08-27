@@ -1,0 +1,87 @@
+    <link rel="stylesheet" href="style.css">
+    
+        <header>
+        <nav class="container">
+            <div class="logo">Elite Cuts</div>
+            <ul class="nav-links">
+                <li><a href="home.html" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('checkin')">Check In</a></li>
+                <li><a href="BarberShop.html" onclick="showSection('register')">Register</a></li>
+                <li><a href="#" onclick="showSection('book')">Book Appointment</a></li>
+                <li><a href="#" onclick="showSection('barbers')">Our Barbers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<!-- Check-in Section -->
+        <section id="checkin" class="section">
+            <div class="container">
+                <h2 class="section-title">Quick Check-In</h2>
+                <div class="form-container">
+                    <form id="checkinForm">
+                        <div class="form-group">
+                            <label for="checkinId">Customer ID or Phone Number</label>
+                            <input type="text" id="checkinId" name="checkinId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkinService">Service Type</label>
+                            <select id="checkinService" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="haircut">Haircut - $25</option>
+                                <option value="beard">Beard Trim - $15</option>
+                                <option value="combo">Haircut + Beard - $35</option>
+                                <option value="shave">Hot Towel Shave - $20</option>
+                                <option value="styling">Hair Styling - $30</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Check In</button>
+                    </form>
+                    <div id="checkinMessage"></div>
+                </div>
+            </div>
+        </section>
+
+       <script>
+            // Global state
+        let selectedTimeSlot = null;
+        let customers = [];
+        let appointments = [];
+
+                // Navigation
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+                // Time slot selection
+        document.addEventListener('DOMContentLoaded', function() {
+            const timeSlots = document.querySelectorAll('.time-slot');
+            timeSlots.forEach(slot => {
+                slot.addEventListener('click', function() {
+                    timeSlots.forEach(s => s.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedTimeSlot = this.dataset.time;
+                });
+            });
+        });
+
+                // Check-in form
+        document.getElementById('checkinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const customerId = formData.get('checkinId');
+            const service = formData.get('service');
+            
+            // Simulate check-in process
+            const customer = customers.find(c => c.id === customerId || c.phone === customerId);
+            
+            if (customer) {
+                showMessage('checkinMessage', `Welcome back, ${customer.firstName}! You're checked in for ${service}. Estimated wait time: 15 minutes.`, 'success');
+            } else {
+                showMessage('checkinMessage', 'Customer not found. Please register first or check your ID/phone number.', 'error');
+            }
+        });
+
+       </script>

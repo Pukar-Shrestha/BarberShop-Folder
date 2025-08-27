@@ -1,0 +1,54 @@
+    <link rel="stylesheet" href="styles.css">
+    
+<header>
+    <nav class="container">
+        <div class="nav-wrapper">
+
+            <!-- Left: Logo -->
+            <div class="logo-section">
+                <div class="logo_anim">
+                    <span>
+                        <img src="Nirvana.gif" alt="Logo" width="70px" height="70px">
+                    </span>
+                </div>
+            </div>
+
+            <!-- Center: Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('checkin')">Check In</a></li>
+                <li><a href="#" onclick="showSection('register')">Register</a></li>
+                <li><a href="#" onclick="showSection('book')">Book Appointment</a></li>
+                <li><a href="#" onclick="showSection('barbers')">Our Barbers</a></li>
+            </ul>
+
+            <!-- Right: User Info -->
+            <div class="user-info">
+                <span>Welcome, John</span>
+                <div class="user-options">
+                    <a href="#">Profile</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Elite Cuts Barber Shop</h1>
+                        <p>Where tradition meets modern style</p>
+                        <div class="cta-buttons">
+                            <a href="#" class="btn btn-primary" onclick="showSection('book')">Book Now</a>
+                            <a href="#" class="btn btn-secondary" onclick="showSection('checkin')">Quick Check-In</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
