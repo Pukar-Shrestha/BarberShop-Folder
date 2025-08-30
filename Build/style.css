@@ -21,6 +21,14 @@ body {
 
 }
 
+.container {
+
+  background-color: black; /* A dark gray color */
+  padding: 10px 0; /* Add some padding for spacing */
+    margin: 0;
+    padding: 0;
+}
+
 /* Center nav-links */
 .nav-links {
     flex: 1;
@@ -69,7 +77,7 @@ body {
 .logo-section {
     display: flex;
     align-items: center;
-    padding-left: 10px ;
+    padding-left: 0px ;
 }
 .logo-section img {
     height: 20%;
@@ -98,4 +106,140 @@ body {
     cursor : pointer;
     background: linear-gradient(45deg, #ff6b35, #f7931e);
 
+}
+
+
+/* Container for the image */
+.image-container {
+  position: relative;
+  height: 100vh;
+  background-image: url('background.jpg'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 100px;
+}
+
+
+/* The animated text */
+.text {
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 2s forwards;
+}
+
+/* Text animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  
+}
+
+p {
+  font-size: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+
+}
+
+/* Optional: Adding a darker overlay for better text visibility */
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+}
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .barbers {
+            padding-top: 100px;
+            position: relative;
+            height: 80vh;
+            background-image: url('barber_back.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: top;
+            overflow: hidden;
+        }
+
+        .barber_img img {
+            height: 40vh;
+        }
+
+        /* Optional: Adding a darker overlay for better text visibility */
+.barbers::before {
+content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Semi-transparent dark overlay */
 }
